@@ -1,0 +1,28 @@
+TITLE:: KFilter
+summary:: adds a nodeproxy role for \kfilter
+categories:: Undocumented classes
+related:: Classes/KModules, Reference/NodeProxy_roles
+
+DESCRIPTION::
+This adds a nodeproxy role for \kfilter which works exactly like the normal \filter role except for a crucial difference: It adds numbers to the node proxy role's synth arguments to make it possible to add several node proxy role layers containing the same function while still being able to control them individually.
+
+You don't have to use this class directly, it automatically adds the nodeproxy role on class init.
+
+
+CLASSMETHODS::
+
+METHOD:: initClass
+Adds the nodeproxy role
+
+INSTANCEMETHODS::
+
+
+EXAMPLES::
+
+code::
+Ndef('hej', {|f=110, w=0.5| VarSaw.ar(f, 0, w) * 0.1})
+Ndef('hej')[1] = \kfilter -> {|in, pitch| PitchShift.ar(in,0.2,pitch)}; // The pitch arg becomes pitch1
+Ndef('hej')[2] = \kfilter -> {|in, pitch| PitchShift.ar(in,0.2,pitch)}; // The pitch arg becomes pitch2
+Ndef('hej').play
+Ndef('hej').gui
+::

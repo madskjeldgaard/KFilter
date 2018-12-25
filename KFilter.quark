@@ -1,0 +1,9 @@
+(
+  name: "KFilter",
+  summary: "adds a nodeproxy role for \kfilter",
+  version: "1.0.0",
+  schelp: "KFilter",
+  dependencies: [],
+  license: "GPL",
+  copyright: "Eirik Blekesaune & Mads Kjeldgaard 2018"
+)
